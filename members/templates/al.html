@@ -8,5 +8,15 @@
 </head>
 <body>
     <h1>Admin login hehe</h1>
+    <form action ="../adminLoggedIn/" method="post">
+        {% csrf_token %}
+          <label for="">Username</label>
+          <input type="text" id="username" name="username" placeholder="Enter Username">
+          <br><br><br>
+          <label for="">Password</label>
+          <input type="password" id="password" name="password" placeholder="Enter Password">
+      
+          <input type="submit" value="LOGIN">
+      </form>
 </body>
 </html>

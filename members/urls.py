@@ -11,5 +11,6 @@ urlpatterns = [
     path('adminRegister/',views.adminRegister, name='adminRegister'),
     path('adminLoggedIn/',views.adminLoggedIn, name='adminLoggedIn'),
     path('clientLoggedIn/',views.clientLoggedIn, name='clientLoggedIn'),
-    path('clientRegistered/',views.clientRegistered, name='clientRegistered')
+    path('clientRegistered/',views.clientRegistered, name='clientRegistered'),
+    path('adminRegistered/',views.adminRegistered, name='adminRegistered')
 ]
