@@ -40,7 +40,7 @@ def clientRegistered(request):
     return HttpResponseRedirect(reverse('clientLogin'))
 
 def clientLoggedIn(request):
-    template=loader.get_template('chome.html')
+    
     client_username=request.POST['username']
     client_password=request.POST['password']
     clients=Users.objects.filter(username=client_username).values()
@@ -54,7 +54,11 @@ def clientLoggedIn(request):
         return HttpResponse("Not a valid client!")
     if(check_password(client_password,saved_hashed_password)!=True):
         return HttpResponse("Wrong password!") 
-    
+    template=loader.get_template('chome.html')
+    context={
+        'client':clients[0]
+        # more to be added
+    }
     return HttpResponse(template.render())
 
 def adminLogin(request):
@@ -84,7 +88,6 @@ def adminRegistered(request):
     return HttpResponseRedirect(reverse('adminLogin'))
 
 def adminLoggedIn(request):
-    template=loader.get_template('ahome.html')
     admin_username=request.POST['username']
     admin_password=request.POST['password']
     admins=Users.objects.filter(username=admin_username).values()
@@ -97,4 +100,10 @@ def adminLoggedIn(request):
         return HttpResponse("Not a valid admin!")
     if(check_password(admin_password,saved_hashed_password)!=True):
         return HttpResponse("Wrong password!") 
+
+    template=loader.get_template('ahome.html')
+    context={
+        'admin':admins[0]
+        # more to be added
+    }
     return HttpResponse(template.render())
