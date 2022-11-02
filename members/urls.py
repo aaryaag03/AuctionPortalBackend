@@ -1,6 +1,6 @@
 from django.urls import path
 
-from members.views import adminLoggedIn
+from members.views import adminLoggedIn, auctionPortalItems
 from . import views
 
 urlpatterns = [
@@ -12,5 +12,10 @@ urlpatterns = [
     path('adminLoggedIn/',views.adminLoggedIn, name='adminLoggedIn'),
     path('clientLoggedIn/',views.clientLoggedIn, name='clientLoggedIn'),
     path('clientRegistered/',views.clientRegistered, name='clientRegistered'),
-    path('adminRegistered/',views.adminRegistered, name='adminRegistered')
+    path('adminRegistered/',views.adminRegistered, name='adminRegistered'),
+    path('auctionPortalItems/',views.auctionPortalItems,name='auctionPortalItems'),
+    path('bidUpdate/',views.bidUpdate,name='bidUpdate'),
+    path('itemAdded/',views.itemAdded,name='itemAdded'),
+    path('bidRequest/',views.bidRequest, name='bidRequest'),
+    path('bidAccept/',views.bidAccept, name='bidAccept'),   
 ]

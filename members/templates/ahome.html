@@ -8,5 +8,15 @@
 </head>
 <body>
     YOO ADMIN SUCCESSFULLY LOGGED IN 
+    {{admin.username}}
+
+    <form action="../auctionPortalItems/" method="POST">
+        {%csrf_token%}
+        <input type="text" name="username" value= '{{ admin.username }}' style="display:none;">
+        <input type="submit" value="AUCTION">
+    </form>
+
+    
+
 </body>
 </html>

@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse,HttpResponseRedirect
 from django.template import loader
 from django.urls import reverse
-from .models import Users
+from .models import Users,ItemsOnBid
 import hashlib
 from django.contrib.auth.hashers import make_password, check_password
 
@@ -59,7 +59,7 @@ def clientLoggedIn(request):
         'client':clients[0]
         # more to be added
     }
-    return HttpResponse(template.render())
+    return HttpResponse(template.render(context,request))
 
 def adminLogin(request):
     template=loader.get_template('al.html')
@@ -106,4 +106,48 @@ def adminLoggedIn(request):
         'admin':admins[0]
         # more to be added
     }
-    return HttpResponse(template.render())
+    return HttpResponse(template.render(context,request))
+
+def auctionPortalItems(request):
+    items=ItemsOnBid.objects.filter(valid=1).values()
+    current_username=request.POST['username']
+    template=loader.get_template('auction.html')
+    context={
+    'items':items,
+    'current_username':current_username
+    }
+    return render(request,'auction.html',context)
+
+# def addItem(request):
+
+
+
+def itemAdded(request):
+    return HttpResponse("Item added successfully")
+
+def bidUpdate(request) :
+    current_item_bid=int(request.POST['bid'])
+    current_item_id=request.POST['item_id']
+    current_username=request.POST['username']
+    items=ItemsOnBid.objects.get(id=current_item_id)
+    saved_highest_bid=items.highest_bid
+    if(current_item_bid>saved_highest_bid) :
+        items.highest_bid=current_item_bid
+        items.highest_bidder_username=current_username
+        items.save() 
+        return HttpResponse("Bid UPDATED")
+    return HttpResponse("Bid nOT ACCEPTED")
+
+def bidRequest(request) :
+    items=ItemsOnBid.objects.filter(valid=0).values()
+    context={
+    'items':items
+    }
+    return render(request,'requests.html',context)
+
+def bidAccept(request) :
+    current_item_id=request.POST['item_id']
+    items=ItemsOnBid.objects.get(id=current_item_id)
+    items.valid=1
+    items.save()
+    return HttpResponse("Item Accepetd")

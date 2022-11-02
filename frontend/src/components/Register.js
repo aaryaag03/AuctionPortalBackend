@@ -9,6 +9,7 @@ function Register() {
       }}
     >
       <form
+        id="reg"
         className="Auth-form"
         style={{
           backgroundImage: "url(/images/blueviolet.jpg)"
