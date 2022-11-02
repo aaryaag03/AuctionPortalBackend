@@ -8,8 +8,11 @@
 </head>
 <body>
     YOO CLIENT SUCCESSFULLY LOGGED IN 
-    <form action="">
-        <input type="text" name="username" value= '{{ admin.username }}' style="display:none;">
+    {{client.username}}
+    <form action="../auctionPortalItems/" method="POST">
+        {%csrf_token%}
+        <input type="text" name="username" value= '{{ client.username }}' style="display:none;">
+        <input type="submit" value="AUCTION">
     </form>
 </body>
 </html>

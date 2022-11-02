@@ -2,8 +2,7 @@
 
 <table border="1">
 {% for x in items %}
-<tr>
-<td>{{ x.id }}</td>    
+<tr>  
 <td>{{ x.item_name }}</td>
 <td>{{ x.owner_username }}</td>
 <td>{{ x.item_descr }}</td>
@@ -13,6 +12,14 @@
           <input type="text" id="item_name" name="item_name" value='{{x.item_name}}' style="display:none;">
           <input type="number" id="item_id" name="item_id" value='{{x.id}}' style="display:none;" >
           <input type="submit" value="ACCEPT">
+      </form>
+</td>
+<td>
+    <form action ="../bidReject/" method="post">
+        {% csrf_token %}
+          <input type="text" id="item_name" name="item_name" value='{{x.item_name}}' style="display:none;">
+          <input type="number" id="item_id" name="item_id" value='{{x.id}}' style="display:none;" >
+          <input type="submit" value="REJECT">
       </form>
 </td>
 </tr>

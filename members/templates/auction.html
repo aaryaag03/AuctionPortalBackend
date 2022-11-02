@@ -20,12 +20,10 @@
       </form>
 </td>
 </tr>
-
-<form action="../addItem/" method="POST">
-    {%csrf_token%}
-    <input type="text" name="username" value= '{{ admin.username }}' style="display:none;">
-    <input type="submit" value="AUCTION">
-</form>
-
 {% endfor %}
 </table>
+<form action="../addItem/" method="POST">
+    {%csrf_token%}
+    <input type="text" name="username" value= '{{ current_username }}' style="display:none;">
+    <input type="submit" value="Add Item">
+</form>

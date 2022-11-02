@@ -7,20 +7,21 @@
     <title>Document</title>
 </head>
 <body>
+    {{current_username}}
     <form action ="../itemAdded/" method="post">
         {% csrf_token %}
-          <input type="text" name="title" value= '{{ item.username }}' style="display:none;">
+          <input type="text" name="username" value= '{{ current_username }}' style="display:none;">
           <label for="">Item name</label>
-          <input type="text" id="username" name="username" placeholder="Enter Username">
+          <input type="text" id="username" name="item_name" placeholder="Enter Item Name">
           <br><br><br>
           <label for="">Description</label>
-          <input type="text" id="username" name="username" placeholder="Enter Description">
+          <input type="text" id="username" name="item_descr" placeholder="Enter Description">
           <br><br><br>
           <label for="">Item picture</label>
-          <input type="text" id="username" name="username" placeholder="Enter Picture">
+          <input type="text" id="username" name="item_picture" placeholder="Enter Picture">
           <br><br><br>
           <label for="">Minimum Bid</label>
-          <input type="text" id="username" name="username" placeholder="Enter Username">
+          <input type="text" id="username" name="minimum_bid" placeholder="Enter Minimum Bid">
           <input type="submit" value="SUBMIT">
       </form>
 </body>

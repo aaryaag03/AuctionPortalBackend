@@ -16,6 +16,8 @@ urlpatterns = [
     path('auctionPortalItems/',views.auctionPortalItems,name='auctionPortalItems'),
     path('bidUpdate/',views.bidUpdate,name='bidUpdate'),
     path('itemAdded/',views.itemAdded,name='itemAdded'),
+    path('addItem/',views.addItem,name='addItem'),
     path('bidRequest/',views.bidRequest, name='bidRequest'),
     path('bidAccept/',views.bidAccept, name='bidAccept'),   
+    path('bidReject/',views.bidReject, name='bidReject'),
 ]
