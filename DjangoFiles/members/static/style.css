@@ -1,0 +1,92 @@
+body{
+  /* background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROJJBGk44OcLgLow4LcuyNlpId6BFmeuea0g&usqp=CAU"); */
+  background-image: url("https://en.cryptonomist.ch/wp-content/uploads/2022/06/3ac-crypto-1140x600.jpg");;
+  background-size: cover;
+}
+header{
+padding:20px;
+}
+.homey{
+  display: grid;
+  width: 80%;
+  grid-template-columns: 2fr 1fr;
+  padding:0vh 5vw 2vh 10vw;
+  color:white;
+  font-family: 'Nunito Sans', sans-serif;
+}
+.logo{
+  z-index: 2;
+}
+.logo img{
+  height: 5rem;
+}
+.heading{
+  padding: 1.5vh 4vw 0vh 4vw;
+  font-size: 60px;
+  color: yellow;
+  font-family: 'Kanit', sans-serif;
+}
+
+.nav{
+  color : grey;
+  display : flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap :  2 rem;
+  padding : 0 1rem;
+  float: right;
+}
+.rightside{
+  float : right;
+  text-decoration: none;
+}
+.nav ul{
+  float : right;
+  margin : 0;
+  list-style: none;
+  display : flex;
+  gap : 1rem;
+}
+.nav a {
+  color : inherit;
+  height : 100%;
+  display : flex;
+  align-items: center;
+  font-family: 'Kanit', sans-serif;
+  padding : .25rem;
+  text-decoration: none;
+}
+.nav li:active{
+  background-color: gray;
+}
+.nav li:hover{
+  color: yellow;
+}
+
+#buttonStart{
+  padding: 2.5vh 10vw;
+}
+
+#buttonStart button{
+  background-color: transparent;
+  color: aliceblue;
+  border: 2px solid white;
+  height: 3em;
+  width: 10em;
+  cursor:pointer;
+  font-family: 'Kanit', sans-serif;
+}
+
+#buttonStart button:hover{
+  border: 2px solid yellow;
+}
+
+.homefooter ul li{
+  background-color: gray;
+  color: white;
+}
+
+#ConFoot{
+  padding: 0vh 10vw 0vh 0vw;
+  font-size: 30px;
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action ="../itemAdded/" method="post">
+        {% csrf_token %}
+          <input type="text" name="title" value= '{{ item.username }}' style="display:none;">
+          <label for="">Item name</label>
+          <input type="text" id="username" name="username" placeholder="Enter Username">
+          <br><br><br>
+          <label for="">Description</label>
+          <input type="text" id="username" name="username" placeholder="Enter Description">
+          <br><br><br>
+          <label for="">Item picture</label>
+          <input type="text" id="username" name="username" placeholder="Enter Picture">
+          <br><br><br>
+          <label for="">Minimum Bid</label>
+          <input type="text" id="username" name="username" placeholder="Enter Username">
+          <input type="submit" value="SUBMIT">
+      </form>
+</body>
+</html>

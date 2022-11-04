@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Client register hehe</h1>
+    <form action ="../clientRegistered/" method="post">
+        {% csrf_token %}
+          <label for="">Username</label>
+          <input type="text" id="username" name="username" placeholder="Enter Username">
+          <br><br><br>
+          <label for="">Password</label>
+          <input type="password" id="password" name="password" placeholder="Enter Password">
+          <br><br><br>
+          <label for="">Confirm Password</label>
+          <input type="password" id="password" name="confirm_password" placeholder="Enter Password again">
+          <br><br><br>
+          <label for="">email</label>
+          <input type="text" id="email" name="email" placeholder="Enter Email">
+          <input type="submit" value="LOGIN">
+      </form>
+</body>
+</html>
