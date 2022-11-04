@@ -111,32 +111,41 @@ def adminLoggedIn(request):
 def auctionPortalItems(request):
     items=ItemsOnBid.objects.filter(valid=1).values()
     current_username=request.POST['username']
-    template=loader.get_template('auction.html')
     context={
     'items':items,
     'current_username':current_username
     }
     return render(request,'auction.html',context)
 
-# def addItem(request):
-
-
+def addItem(request):
+    current_username=request.POST['username']
+    context={
+        'current_username':current_username
+    }
+    return render(request,'addItem.html',context)
 
 def itemAdded(request):
-    return HttpResponse("Item added successfully")
+    item_name=request.POST['item_name']
+    item_descr=request.POST['item_descr']
+    item_picture=request.POST['item_picture']
+    minimum_bid=request.POST['minimum_bid']
+    username=request.POST['username']
+    item=ItemsOnBid(item_name=item_name,item_descr=item_descr,item_picture=item_picture,highest_bid=minimum_bid,highest_bidder_username=username,owner_username=username,valid='0')
+    item.save()
+    return HttpResponse("Request has been sent to admin")
 
 def bidUpdate(request) :
     current_item_bid=int(request.POST['bid'])
     current_item_id=request.POST['item_id']
     current_username=request.POST['username']
-    items=ItemsOnBid.objects.get(id=current_item_id)
-    saved_highest_bid=items.highest_bid
+    item=ItemsOnBid.objects.get(id=current_item_id)
+    saved_highest_bid=item.highest_bid
     if(current_item_bid>saved_highest_bid) :
-        items.highest_bid=current_item_bid
-        items.highest_bidder_username=current_username
-        items.save() 
+        item.highest_bid=current_item_bid
+        item.highest_bidder_username=current_username
+        item.save() 
         return HttpResponse("Bid UPDATED")
-    return HttpResponse("Bid nOT ACCEPTED")
+    return HttpResponse("Bid not ACCEPTED")
 
 def bidRequest(request) :
     items=ItemsOnBid.objects.filter(valid=0).values()
@@ -147,7 +156,13 @@ def bidRequest(request) :
 
 def bidAccept(request) :
     current_item_id=request.POST['item_id']
-    items=ItemsOnBid.objects.get(id=current_item_id)
-    items.valid=1
-    items.save()
+    item=ItemsOnBid.objects.get(id=current_item_id)
+    item.valid=1
+    item.save()
     return HttpResponse("Item Accepetd")
+
+def bidReject(request) :
+    current_item_id=request.POST['item_id']
+    item=ItemsOnBid.objects.get(id=current_item_id)
+    item.delete()
+    return HttpResponse("Item Deleted")
