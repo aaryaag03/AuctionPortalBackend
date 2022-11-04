@@ -11,15 +11,16 @@
 <body>
     <div class="MainContainer">
         <h1 class="SigninText">Admin Sign-in</h1>
-        <div class="InputContainer">
-
-                <input type="text" class="input" placeholder="Enter Usename" ><br>
-                <input type="password" class="input" placeholder="Enter Password" >
-        </div>        
-            
-        <div class="ButtonContainer">
-            <button type="submit">Sign in</button>
-        </div>
+        <form action="../adminLoggedIn/" method = "post">
+            {% csrf_token %}
+            <div class="InputContainer">
+                <input type="text" class="input" placeholder="Enter Usename" name="username"><br>
+                <input type="password" class="input" placeholder="Enter Password" name="password">
+            </div> 
+            <div class="ButtonContainer">
+                <button type="submit">Sign in</button>
+            </div>       
+        </form>
     </div>
 </body>
 </html>
