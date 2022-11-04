@@ -79,6 +79,7 @@ padding:20px;
 
 #buttonStart button:hover{
   border: 2px solid yellow;
+  color:yellow;
 }
 
 .homefooter ul li{
