@@ -1,3 +1,4 @@
+<<<<<<< HEAD:DjangoFiles/members/templates/addItem.html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,4 +25,33 @@
           <input type="submit" value="SUBMIT">
       </form>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {{current_username}}
+    <form action ="../itemAdded/" method="post">
+        {% csrf_token %}
+          <input type="text" name="username" value= '{{ current_username }}' style="display:none;">
+          <label for="">Item name</label>
+          <input type="text" id="username" name="item_name" placeholder="Enter Item Name">
+          <br><br><br>
+          <label for="">Description</label>
+          <input type="text" id="username" name="item_descr" placeholder="Enter Description">
+          <br><br><br>
+          <label for="">Item picture</label>
+          <input type="text" id="username" name="item_picture" placeholder="Enter Picture">
+          <br><br><br>
+          <label for="">Minimum Bid</label>
+          <input type="text" id="username" name="minimum_bid" placeholder="Enter Minimum Bid">
+          <input type="submit" value="SUBMIT">
+      </form>
+</body>
+>>>>>>> caa166e59075229df6d6e12bbb55a762303ab609:members/templates/addItem.html
 </html>
