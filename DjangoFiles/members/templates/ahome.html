@@ -1,4 +1,3 @@
-<<<<<<< HEAD:DjangoFiles/members/templates/ahome.html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,37 +15,10 @@
         <input type="text" name="username" value= '{{ admin.username }}' style="display:none;">
         <input type="submit" value="AUCTION">
     </form>
-
-    
-
-</body>
-=======
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    YOO ADMIN SUCCESSFULLY LOGGED IN 
-    {{admin.username}}
-
-    <form action="../auctionPortalItems/" method="POST">
-        {%csrf_token%}
-        <input type="text" name="username" value= '{{ admin.username }}' style="display:none;">
-        <input type="submit" value="AUCTION">
-    </form>
-
     <form action="../bidRequest/" method="POST">
         {%csrf_token%}
         <input type="text" name="username" value= '{{ admin.username }}' style="display:none;">
         <input type="submit" value="REQUEST">
     </form>
-
-    
-
 </body>
->>>>>>> caa166e59075229df6d6e12bbb55a762303ab609:members/templates/ahome.html
 </html>
