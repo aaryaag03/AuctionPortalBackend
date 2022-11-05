@@ -1,0 +1,16 @@
+h1{
+    text-align:center;
+}
+
+table{
+    text-align:center;
+    width : 100%;
+    
+}
+
+td,th {
+    padding:40px;
+    border-width: 20px;
+    border-radius: 20px;
+    border-color: transparent;
+}
