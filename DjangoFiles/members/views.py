@@ -4,6 +4,8 @@ from django.template import loader
 from django.urls import reverse
 from .models import Users,ItemsOnBid
 import hashlib
+from requests import Session
+import json
 from django.contrib.auth.hashers import make_password, check_password
 
 hashed_pwd = make_password("plain_text")
@@ -166,3 +168,38 @@ def bidReject(request) :
     item=ItemsOnBid.objects.get(id=current_item_id)
     item.delete()
     return HttpResponse("Item Deleted")
+
+def crypto(request):
+    url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/category'
+
+    parameters = {
+    'id':"605e2ce9d41eae1066535f7c",
+    'start':'1',
+    'limit':'20',
+    'convert':'USD'
+    }
+    headers = {
+    'Accepts': 'application/json',
+    'X-CMC_PRO_API_KEY': '3a23a8ef-d582-4884-8ae5-7c8acaaf56a7',
+    }
+
+    session = Session()
+    session.headers.update(headers)
+
+    response = session.get(url, params=parameters)
+    json_data = json.loads(response.text)
+    with open("data_file.json", "w") as write_file:
+        json.dump(json_data, write_file, indent=4)
+    newdata=json_data['data']
+    Bitcoin=newdata['coins']
+    coinarray=Bitcoin[0]
+    quote=coinarray['quote']
+    USD=quote['USD']
+    price=USD['price']
+    template=loader.get_template('crypto.html')
+    context={
+        "nice":20,
+        "pricey":price
+    }
+    return HttpResponse(template.render(context,request))
+    

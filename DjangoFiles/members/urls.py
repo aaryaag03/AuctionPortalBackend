@@ -17,5 +17,6 @@ urlpatterns = [
     path('bidUpdate/',views.bidUpdate,name='bidUpdate'),
     path('itemAdded/',views.itemAdded,name='itemAdded'),
     path('bidRequest/',views.bidRequest, name='bidRequest'),
-    path('bidAccept/',views.bidAccept, name='bidAccept'),   
+    path('bidAccept/',views.bidAccept, name='bidAccept'),
+    path('crypto/',views.crypto, name="crypto"),
     ]
