@@ -1,0 +1,13 @@
+body{
+    background-image:url("https://en.cryptonomist.ch/wp-content/uploads/2022/06/3ac-crypto-1140x600.jpg");
+    background-size: cover;
+    color:aliceblue;
+}
+
+#Cryptocurrency-chart{
+    height: 200%;
+}
+
+#container{
+    background-color: rgb(200,200,230) ;
+}

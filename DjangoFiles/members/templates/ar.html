@@ -1,27 +1,35 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Admin Register</title>
+    <link rel="stylesheet" href="{% static 'login.css' %}">
 </head>
 <body>
-    <h1>Admin register hehe</h1>
-    <form action ="../adminRegistered/" method="post">
+    <div class="demo-wrap">
+        <img
+          class="demo-bg"
+          src="https://en.cryptonomist.ch/wp-content/uploads/2022/06/3ac-crypto-1140x600.jpg"
+          alt=""
+        >
+        <div class="MainContainer">
+    <h1 class="SigninText">Admin register </h1>
+    <form class="InputContainer" action ="../adminRegistered/" method="post" style="padding-top: 100px">
         {% csrf_token %}
-          <label for="">Username</label>
-          <input type="text" id="username" name="username" placeholder="Enter Username">
-          <br><br><br>
-          <label for="">Password</label>
-          <input type="password" id="password" name="password" placeholder="Enter Password">
-          <br><br><br>
-          <label for="">Confirm Password</label>
-          <input type="password" id="password" name="confirm_password" placeholder="Enter Password again">
-          <br><br><br>
-          <label for="">email</label>
-          <input type="text" id="email" name="email" placeholder="Enter Email">
-          <input type="submit" value="REGISTER">
+          <input type="text" id="username" name="username" class="input" placeholder="Enter Username"><br>
+          <input type="password" id="password" name="password" class="input" placeholder="Enter Password"><br>
+          <input type="password" id="password" name="confirm_password" class="input" placeholder="Confirm Password"><br>
+          <input type="text" id="email" name="email" class="input" placeholder="Enter Email">
+          
+          <div class="ButtonContainer" >
+            <button type="submit" value="REGISTER">Sign in</button>
+        </div> 
       </form>
+      <p>Already an Admin? <a href=""> Sign-In</a> </p> 
+      </div>
+      </div>
 </body>
 </html>

@@ -9,18 +9,35 @@
     <link rel="stylesheet" href="{% static 'login.css' %}">
 </head>
 <body>
+    {% comment %} <div class="demo-wrap">
+        <img
+          class="demo-bg"
+          src="https://en.cryptonomist.ch/wp-content/uploads/2022/06/3ac-crypto-1140x600.jpg"
+          alt=""
+        > {% endcomment %}
+
     <div class="MainContainer">
         <h1 class="SigninText">Admin Sign-in</h1>
-        <form action="../adminLoggedIn/" method = "post">
+        <form class="InputContainer" action="../adminLoggedIn/" method = "post" style="padding-top: 100px;">
             {% csrf_token %}
-            <div class="InputContainer">
-                <input type="text" class="input" placeholder="Enter Usename" name="username"><br>
+            
+                <input type="text" class="input" placeholder="Enter Username" name="username"><br>
                 <input type="password" class="input" placeholder="Enter Password" name="password">
-            </div> 
-            <div class="ButtonContainer">
+          
+            <div class="ButtonContainer" style="
+            margin-top: 32px;">
                 <button type="submit">Sign in</button>
             </div>       
         </form>
+        <div class="register" >
+        
+        <p>Not an existing Admin? <a href="ar.html"> Register</a> </p> 
+        
+        
+        </div>
     </div>
+    </div>
+</div>
+    
 </body>
 </html>

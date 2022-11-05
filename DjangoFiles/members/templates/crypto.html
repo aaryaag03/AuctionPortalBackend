@@ -1,15 +1,61 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'crypto.css' %}">
     <title>CryptoCurrency Api</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <script>
+        $(function () {
+            var $cryptoChart = $("#Cryptocurrency-chart");
+            $.ajax({
+              url: $cryptoChart.data("url"),
+              success: function (data) {
+      
+                var ctx = $cryptoChart[0].getContext("2d");
+      
+                new Chart(ctx, {
+                  type: 'bar',
+                  data: { 
+                    labels: ["Bitcoin","Ethereum","Maker","Rupee"],
+                    datasets: [{
+                      label: 'Crypto-currency price in USD',
+                      backgroundColor: 'yellow',
+                      data: [{{price_1}},{{price_2}},{{price_4}},0.012]
+                    }]          
+                  },
+                  options: {
+                    responsive: true,
+                    legend: {
+                      position: 'top',
+                    },
+                    title: {
+                      display: true,
+                      text: 'Cryptocurrency Bar Chart'
+                    }
+                  }
+                });
+              }
+            });
+          });
+    </script>
 </head>
 <body>
-    <div>This is it</div><br>
+    <h1>Check the Latest CryptoCurrency prices: </h1>
     <div>
-        {{pricey}}
+        Bitcoin Price = {{price_1}} USD</br>
+        Ethereum Price = {{price_2}} USD</br>
+        Maker Price = {{price_4}} USD</br></br>
+        Rupee Price= 0.012 USD
     </div>
+    <center>
+        <div id="container" style="width: 75%;">
+            <canvas id="Cryptocurrency-chart" data-url="{% url 'crypto' %}"></canvas>
+        </div>
+    </center>
 </body>
 </html>

@@ -3,7 +3,6 @@ from django.http import HttpResponse,HttpResponseRedirect
 from django.template import loader
 from django.urls import reverse
 from .models import Users,ItemsOnBid
-import hashlib
 from requests import Session
 import json
 from django.contrib.auth.hashers import make_password, check_password
@@ -192,14 +191,27 @@ def crypto(request):
         json.dump(json_data, write_file, indent=4)
     newdata=json_data['data']
     Bitcoin=newdata['coins']
+    #Bitcoin
     coinarray=Bitcoin[0]
     quote=coinarray['quote']
     USD=quote['USD']
     price=USD['price']
+    #Ethereum
+    coinarray_2=Bitcoin[1]
+    quote_2=coinarray_2['quote']
+    USD_2=quote_2['USD']
+    price_2=USD_2['price']
+    #Maker
+    coinarray_4=Bitcoin[6]
+    quote_4=coinarray_4['quote']
+    USD_4=quote_4['USD']
+    price_4=USD_4['price']
+    
     template=loader.get_template('crypto.html')
     context={
-        "nice":20,
-        "pricey":price
+        "price_1":price,
+        "price_2":price_2,
+        "price_4":price_4
     }
     return HttpResponse(template.render(context,request))
     

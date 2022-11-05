@@ -6,7 +6,7 @@
     box-sizing: border-box;
   }
   body {
-    background-image: url("https://en.cryptonomist.ch/wp-content/uploads/2022/06/3ac-crypto-1140x600.jpg");
+    /* background-image: url("https://en.cryptonomist.ch/wp-content/uploads/2022/06/3ac-crypto-1140x600.jpg"); */
     background-size: cover;
     display: flex;
     justify-content: center;
@@ -72,7 +72,7 @@
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
   }
   button{
     /* background: linear-gradient(to right, maroon  0%, #FCECB6 79%); */
@@ -86,4 +86,34 @@
   color: black;
   border-radius: 2rem;
   cursor: pointer;
+  }
+
+  .register{
+    width: 300px;
+    background-color: rgb(252, 236, 182,0.5);
+    border-radius: 30px;
+    margin: 100px;
+    padding: 4px 20px;
+  }
+
+  .register p{
+    color: black;
+    text-transform: none;
+    letter-spacing: 0;
+   
+  }
+
+  .register a{
+    text-transform: none;
+    /* font-family: sans-serif; */
+    letter-spacing: 0;
+  }
+
+  .demo-bg {
+    opacity: 1;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
   }
