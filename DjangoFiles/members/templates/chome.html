@@ -17,13 +17,6 @@
             <div class = "rightside">
             <ul >
                 <li>
-                    <form action="../auctionPortalItems/" method="POST">
-                        {%csrf_token%}
-                        <input type="text" name="username" value= '{{ client.username }}' style="display:none;">
-                        <input type="submit" value="Auction">
-                    </form>
-                </li>
-                <li>
                 <a href="/members/about">About</a>
                 </li>
                 <li>
@@ -53,8 +46,13 @@
                 alt='why man why?'/>
             </div>
         </div>
-        <div id="buttonStart"><Button>
-            <b> GET STARTED </b>
-        </Button></div>
+        <div id="buttonStart">
+            <form action="../auctionPortalItems/" method="POST">
+                {%csrf_token%}
+                <input type="text" name="username" value= '{{ client.username }}' style="display:none;">
+                <Button>
+                    <b> CHECK YOUR ITEMS </b>
+                </Button></div>
+            </form>
 </body>
 </html>

@@ -21,11 +21,11 @@
                 new Chart(ctx, {
                   type: 'bar',
                   data: { 
-                    labels: ["Bitcoin","Ethereum","Maker","Rupee"],
+                    labels: ["Bitcoin","Ethereum","Rupee"],
                     datasets: [{
                       label: 'Crypto-currency price in USD',
                       backgroundColor: 'yellow',
-                      data: [{{price_1}},{{price_2}},{{price_4}},0.012]
+                      data: [{{price_1}},{{price_2}},0.012]
                     }]          
                   },
                   options: {
@@ -49,7 +49,6 @@
     <div>
         Bitcoin Price = {{price_1}} USD</br>
         Ethereum Price = {{price_2}} USD</br>
-        Maker Price = {{price_4}} USD</br></br>
         Rupee Price= 0.012 USD
     </div>
     <center>

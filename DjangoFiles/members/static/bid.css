@@ -1,5 +1,5 @@
 body, html {
-    background-image: url("https://en.cryptonomist.ch/wp-content/uploads/2022/06/3ac-crypto-1140x600.jpg");;
+    background-image: url("https://i.imgur.com/tNte8v1.jpg");;
     background-size: cover;
     background-position: fixed;
     height: 100%;
@@ -12,11 +12,9 @@ body, html {
   }
   
   .bg-text {
-    /* background-color: rgb(0,0,0); Fallback color */
-    /* background-color: rgba(0,0,0, 0.4); Black w/opacit/see-through */
     color:#FCECB6;
     font-weight: bold;
-
+    font-family: 'Kanit', sans-serif;
     position: absolute;
     top: 10%;
     left: 50%;
@@ -25,12 +23,11 @@ body, html {
     width: 100%;
     padding: 10px;
     text-align: center;
-    font-family: 'Times New Roman', serif;
   }
 
 h1{
     text-align:center;
-    padding-top: 70vh;
+    padding-top: 120vh;
     
 }
 
@@ -91,6 +88,8 @@ td,th {
   width: 8em;
   cursor:pointer;
   font-family: 'Kanit', sans-serif;
+  border-radius: 20px;
+  padding-top: 4px ;
 }
 
 .button:hover{
@@ -103,3 +102,10 @@ td,th {
   border: 5px groove #FCECBe;
   width:100px;
 }
+
+#additem{
+  float: right;
+  margin-right: 25px;
+  margin-bottom: 15px;
+}
+
