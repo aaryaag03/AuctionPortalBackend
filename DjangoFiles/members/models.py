@@ -1,5 +1,6 @@
 from unittest.util import _MAX_LENGTH
 from django.db import models
+#import datetime
 
 class Users(models.Model):
   username = models.CharField(max_length=255)
@@ -17,6 +18,8 @@ class ItemsOnBid(models.Model):
   highest_bidder_username=models.CharField(max_length=255)
   owner_username=models.CharField(max_length=255)
   valid=models.BooleanField()
+  initial_time=models.IntegerField(default=0)
+  time_left=models.IntegerField(default=0)
 
 
 class ItemsClaimed(models.Model):

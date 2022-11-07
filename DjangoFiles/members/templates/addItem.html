@@ -13,19 +13,11 @@
     <img
     class="demo-bg"
     src="https://en.cryptonomist.ch/wp-content/uploads/2022/06/3ac-crypto-1140x600.jpg"
-    alt=""
-  >
-    
-
+    alt="">
       <div class="MainContainer">
-       
         <h1 class="SigninText">Add Item</h1>
-        {% comment %} {{current_username}} {% endcomment %}
         <form class="InputContainer" action ="../itemAdded/" method="post" style="padding-top: 100px;">
-
             {% csrf_token %}
-           
-
             <input type="text" class="input" name="username" value= '{{ current_username }}' style="display:none;">
             <input type="text" style="margin-top: 200px;" class="input" id="username" name="item_name" placeholder="Enter Item Name">
             <input type="text" class="input" id="username" name="item_descr" placeholder="Enter Description">
@@ -34,7 +26,6 @@
             <div class="ButtonContainer" style="margin-top: 32px;">
                 <button type="submit">Submit</button>
             </div>    
-
         </form>
     </div>
 </div>

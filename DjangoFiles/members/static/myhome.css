@@ -1,5 +1,5 @@
 body{
-    background-image: url("https://en.cryptonomist.ch/wp-content/uploads/2022/06/3ac-crypto-1140x600.jpg");;
+    background-image: url("https://i.imgur.com/mjVFNa4.jpg");
     background-size: cover;
   }
   header{
@@ -89,7 +89,7 @@ body{
     color: aliceblue;
     border: 2px solid white;
     height: 3em;
-    width: 10em;
+    width: 15em;
     cursor:pointer;
     font-family: 'Kanit', sans-serif;
   }
@@ -102,4 +102,11 @@ body{
   .homefooter ul li{
     background-color: gray;
     color: white;
+  }
+
+  #buttonStart ul{
+    margin : 0;
+    list-style: none;
+    display : flex;
+    gap : 1rem;
   }

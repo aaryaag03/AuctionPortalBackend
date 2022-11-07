@@ -21,4 +21,6 @@ urlpatterns = [
     path('crypto/',views.crypto, name="crypto"),
     path('about/',views.first, name="first"),
     path('addItem/',views.addItem, name="addItem"),
+    path('myProfile/',views.myProfile, name='myProfile'),
+    path('balanceUpdate/',views.balanceUpdate, name='balanceUpdate'),
     ]

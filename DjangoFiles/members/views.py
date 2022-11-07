@@ -2,9 +2,10 @@ from django.shortcuts import render
 from django.http import HttpResponse,HttpResponseRedirect
 from django.template import loader
 from django.urls import reverse
-from .models import Users,ItemsOnBid
+from .models import Users,ItemsOnBid, ItemsClaimed
 from requests import Session
 import json
+import time
 from django.contrib.auth.hashers import make_password, check_password
 
 hashed_pwd = make_password("plain_text")
@@ -113,9 +114,31 @@ def adminLoggedIn(request):
     }
     return HttpResponse(template.render(context,request))
 
+# def auctionPortalItems(request):
+#     items=ItemsOnBid.objects.filter(valid=1).values()
+#     current_username=request.POST['username']
+#     context={
+#     'items':items,
+#     'current_username':current_username
+#     }
+#     return render(request,'auction.html',context)
+
 def auctionPortalItems(request):
     items=ItemsOnBid.objects.filter(valid=1).values()
     current_username=request.POST['username']
+    current_time=int(time.time())
+    for item in ItemsOnBid.objects.filter(valid=1):
+        item.time_left=300-current_time+item.initial_time
+        item.save()
+        if item.time_left<=0:
+            item.owner_username=item.highest_bidder_username
+            item.save()
+            claimed_item=ItemsClaimed(item_name=item.item_name,item_descr=item.item_descr,item_picture=item.item_picture,owner_username=item.owner_username)
+            claimed_item.save()
+            user=Users.objects.filter(username=item.highest_bidder_username)[0]
+            user.balance=user.balance-item.highest_bid
+            user.save()
+            item.delete()
     context={
     'items':items,
     'current_username':current_username
@@ -159,10 +182,18 @@ def bidRequest(request) :
     }
     return render(request,'requests.html',context)
 
+# def bidAccept(request) :
+#     current_item_id=request.POST['item_id']
+#     item=ItemsOnBid.objects.get(id=current_item_id)
+#     item.valid=1
+#     item.save()
+#     return HttpResponse("Item Accepetd")
+
 def bidAccept(request) :
     current_item_id=request.POST['item_id']
     item=ItemsOnBid.objects.get(id=current_item_id)
     item.valid=1
+    item.initial_time=time.time()
     item.save()
     return HttpResponse("Item Accepetd")
 
@@ -171,6 +202,31 @@ def bidReject(request) :
     item=ItemsOnBid.objects.get(id=current_item_id)
     item.delete()
     return HttpResponse("Item Deleted")
+
+def balanceUpdate(request):
+    username=request.POST['username']
+    price=request.POST['price']
+    bitcoins=request.POST['bitcoins']
+    names=Users.objects.filter(username=username)
+    name=names[0]
+    name.balance= name.balance + price*bitcoins
+    name.save()
+    return HttpResponse("Balance Updated")
+
+def myProfile(request):
+        username=request.POST['username']
+        items=ItemsClaimed.objects.filter(owner_username=username).values()
+        user=Users.objects.filter(username=username)
+        if(user[0].role==0): 
+            role="client"
+        else:
+            role="admin"
+        context={
+            'items':items,
+            'user':user[0],
+            'role':role
+        }
+        return render(request,'myProfile.html',context)
 
 def crypto(request):
     url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/category'
@@ -218,4 +274,5 @@ def crypto(request):
         "price_4":price_4
     }
     return HttpResponse(template.render(context,request))
+
     
