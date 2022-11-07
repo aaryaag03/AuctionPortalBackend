@@ -10,11 +10,16 @@
 </head>
     
 <body>
-    <div class="bg-image" >  
-    </div>
-    
     <div class="bg-text">
         <h1>Items</h1>
+        <form class="InputContainer" action="../addItem/" method = "post" style="padding-top: 100px;">
+            {% csrf_token %}
+                <input type="text" name="username" value= '{{ current_username }}' style="display:none;">
+            <div class="ButtonContainer" style="margin-top: 32px;">
+                <button type="submit">ADD ITEM</button>
+            </div>       
+        </form>
+        <center>
         <table >
         <tr>
              <th>Item Image </th>
@@ -53,8 +58,6 @@
                     <input type="number" id="item_id" name="item_id" value='{{x.id}}' style="display:none;" >
                     <input class="button" type="submit" value="SEND BID">
                 </form>
-            
-            
         </td>
         <td>
 
@@ -67,7 +70,7 @@
         </form> {% endcomment %}
         {% endfor %}
 </table>
-
+</center>
 </div>
 
 </body>

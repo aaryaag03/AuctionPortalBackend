@@ -92,8 +92,9 @@
     width: 300px;
     background-color: rgb(252, 236, 182,0.5);
     border-radius: 30px;
-    margin: 100px;
+    margin: 100px 0px 20px 0px;
     padding: 4px 20px;
+    width:fit-content
   }
 
   .register p{
@@ -116,4 +117,13 @@
     top: 0;
     width: 100%;
     height: auto;
+  }
+  #rusername{
+    margin-top: 150px;
+  }
+  #areyou{
+    margin-top: 250px;
+  }
+  #Adminme{
+    margin-top: 0;
   }

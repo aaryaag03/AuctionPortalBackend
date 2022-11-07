@@ -20,7 +20,6 @@
         <h1 class="SigninText">Client Sign-in</h1>
         <form class="InputContainer" action="../clientLoggedIn/" method = "post" style="padding-top: 100px;">
             {% csrf_token %}
-            
                 <input type="text" class="input" placeholder="Enter Username" name="username"><br>
                 <input type="password" class="input" placeholder="Enter Password" name="password">
           
@@ -29,10 +28,12 @@
             </div>       
         </form>
         <div class="register" >
-        
         <p>Not an existing Client? <a href="../clientRegister/"> Register</a> </p> 
         </div>
-    </div>
+        <div class="register" id="Adminme">
+            <p>Are you an <a href="../adminLogin/">Admin?</a> </p> 
+            </div>
+        </div>
     </div>
 </div>
 </body>

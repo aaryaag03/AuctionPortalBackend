@@ -1,29 +1,16 @@
 body, html {
+    background-image: url("https://en.cryptonomist.ch/wp-content/uploads/2022/06/3ac-crypto-1140x600.jpg");;
+    background-size: cover;
+    background-position: fixed;
     height: 100%;
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
   }
   
-  * {
+  *{
     box-sizing: border-box;
   }
   
-  .bg-image {
-    background-image: url("https://en.cryptonomist.ch/wp-content/uploads/2022/06/3ac-crypto-1140x600.jpg");
-    /* Add the blur effect */
-    filter: blur(8px);
-    -webkit-filter: blur(8px);
-    
-    /* Full height */
-    height: 100%; 
-    
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  
-  /* Position text in the middle of the page/image */
   .bg-text {
     /* background-color: rgb(0,0,0); Fallback color */
     /* background-color: rgba(0,0,0, 0.4); Black w/opacit/see-through */
@@ -43,14 +30,15 @@ body, html {
 
 h1{
     text-align:center;
+    padding-top: 70vh;
+    
 }
 
 table{
-  
     background-color: rgba(0,0,0,0.6);
     border-radius: 30px;
     /* alignment:justify; */
-    position:absolute;
+    position:center;
     margin-top:10px;
     text-align:center;
     width : 65%;

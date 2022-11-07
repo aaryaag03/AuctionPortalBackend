@@ -1,18 +1,60 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Auction Portal</title>
+    <link rel="stylesheet" href="{% static 'myhome.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit&family=Nunito+Sans:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
-    YOO CLIENT SUCCESSFULLY LOGGED IN 
-    {{client.username}}
-    <form action="../auctionPortalItems/" method="POST">
-        {%csrf_token%}
-        <input type="text" name="username" value= '{{ client.username }}' style="display:none;">
-        <input type="submit" value="AUCTION">
-    </form>
+    <header>
+        <nav class = "nav">
+            <div class = "rightside">
+            <ul >
+                <li>
+                    <form action="../auctionPortalItems/" method="POST">
+                        {%csrf_token%}
+                        <input type="text" name="username" value= '{{ client.username }}' style="display:none;">
+                        <input type="submit" value="Auction">
+                    </form>
+                </li>
+                <li>
+                <a href="/members/about">About</a>
+                </li>
+                <li>
+                <a href="/members/crypto">Cryptocurrency prices</a>
+                </li>
+                <li>
+                <a href="/members/">Logout</a>
+                </li>
+            </ul>
+            </div>
+        </nav>
+      </header>
+        <div class='heading'>
+            <p class='heading'>
+                AUCTOPUS
+            </p>
+        </div>
+        <div class='homey'>
+            <div className="homecontent">
+                <h1>An online web port that helps you make fair trades ! Exploring currencies and making trzansactions directly through them is now easier</h1> 
+            </div>
+            <div class="homeimg">
+                <img
+                width='60%'
+                height='200'
+                src='https://i.imgur.com/wztG4ZO.png'
+                alt='why man why?'/>
+            </div>
+        </div>
+        <div id="buttonStart"><Button>
+            <b> GET STARTED </b>
+        </Button></div>
 </body>
 </html>

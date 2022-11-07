@@ -19,7 +19,7 @@
     <h1 class="SigninText">Client register </h1>
     <form class="InputContainer" action ="../clientRegistered/" method="post" style="padding-top: 100px">
         {% csrf_token %}
-          <input type="text" id="username" name="username" class="input" placeholder="Enter Username"><br>
+          <input type="text" id="rusername" name="username" class="input" placeholder="Enter Username"><br>
           <input type="password" id="password" name="password" class="input" placeholder="Enter Password"><br>
           <input type="password" id="password" name="confirm_password" class="input" placeholder="Confirm Password"><br>
           <input type="text" id="email" name="email" class="input" placeholder="Enter Email">
@@ -28,7 +28,7 @@
             <button type="submit" value="REGISTER">Register</button>
         </div> 
       </form>
-      <p>Already an Client? <a href="../clientLogin/"> Sign-In</a> </p> 
+      <p id="areyou">Already an Client? <a href="../clientLogin/"> Sign-In</a> </p> 
       </div>
       </div>
 </body>

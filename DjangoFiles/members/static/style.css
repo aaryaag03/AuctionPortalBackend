@@ -1,6 +1,5 @@
 body{
-  background-image: url("https://en.cryptonomist.ch/wp-content/uploads/2022/06/3ac-crypto-1140x600.jpg");;
-  /* background-image: url("https://hexagon.com/-/media/project/one-web/master-site/sig/products/hxgn-oncall-analytics/hxgn-oncall-analytics.jpg?h=428&iar=0&w=800&hash=8A608CA197E338E42D0C121E63A18359"); */
+  background-image: url("https://en.cryptonomist.ch/wp-content/uploads/2022/06/3ac-crypto-1140x600.jpg");
   background-size: cover;
   padding:0%;
   margin: 0%;
@@ -52,6 +51,21 @@ padding:20px;
   display : flex;
   gap : 1rem;
 }
+
+.nav form input{
+  color : inherit;
+  height : 100%;
+  display : flex;
+  align-items: center;
+  font-family: 'Kanit', sans-serif;
+  padding : .26rem;
+  font-size: large;
+  text-decoration: none;
+  background-color: transparent;
+  border:none;
+  margin-top: 0.5rem;
+}
+
 .nav a {
   color : inherit;
   height : 100%;
@@ -106,8 +120,8 @@ padding:20px;
   background-color: black;
   text-align: center;
   color: aliceblue;
-  padding: 0px 0 20px 0;
-  margin: 100px 0px 0px 0px;
+  padding: 15px 0 20px 0;
+  margin: 15vh 0px 0px 0px;
 }
 .contacts img{
   height:3em;
