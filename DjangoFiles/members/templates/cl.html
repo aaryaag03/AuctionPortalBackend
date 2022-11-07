@@ -1,23 +1,39 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Client Login</title>
+    <link rel="stylesheet" href="{% static 'login.css' %}">
 </head>
 <body>
-    <h1>Client login hehe</h1>
-    <form action ="../clientLoggedIn/" method="post">
-        {% csrf_token %}
-          <label for="">Username</label>
-          <input type="text" id="username" name="username" placeholder="Enter Username">
-          <br><br><br>
-          <label for="">Password</label>
-          <input type="password" id="password" name="password" placeholder="Enter Password">
-      
-          <input type="submit" value="LOGIN">
-      </form>
+    <div class="demo-wrap">
+        <img
+          class="demo-bg"
+          src="https://en.cryptonomist.ch/wp-content/uploads/2022/06/3ac-crypto-1140x600.jpg"
+          alt=""
+        >
 
+    <div class="MainContainer">
+        <h1 class="SigninText">Client Sign-in</h1>
+        <form class="InputContainer" action="../clientLoggedIn/" method = "post" style="padding-top: 100px;">
+            {% csrf_token %}
+            
+                <input type="text" class="input" placeholder="Enter Username" name="username"><br>
+                <input type="password" class="input" placeholder="Enter Password" name="password">
+          
+            <div class="ButtonContainer" style="margin-top: 32px;">
+                <button type="submit">Sign in</button>
+            </div>       
+        </form>
+        <div class="register" >
+        
+        <p>Not an existing Client? <a href="../clientRegister/"> Register</a> </p> 
+        </div>
+    </div>
+    </div>
+</div>
 </body>
 </html>

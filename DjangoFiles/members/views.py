@@ -14,6 +14,10 @@ def index(request):
     template=loader.get_template('index.html')
     return HttpResponse(template.render())
 
+def first(request):
+    template=loader.get_template('first.html')
+    return HttpResponse(template.render())
+
 def clientLogin(request):
     template=loader.get_template('cl.html')
     return HttpResponse(template.render({},request))

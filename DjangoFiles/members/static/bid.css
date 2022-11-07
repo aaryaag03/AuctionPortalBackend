@@ -27,7 +27,7 @@ body, html {
   .bg-text {
     /* background-color: rgb(0,0,0); Fallback color */
     /* background-color: rgba(0,0,0, 0.4); Black w/opacit/see-through */
-    color: yellow;
+    color:#FCECB6;
     font-weight: bold;
 
     position: absolute;
@@ -38,6 +38,7 @@ body, html {
     width: 100%;
     padding: 10px;
     text-align: center;
+    font-family: 'Times New Roman', serif;
   }
 
 h1{
@@ -45,22 +46,72 @@ h1{
 }
 
 table{
-    border: 5px;
+  
+    background-color: rgba(0,0,0,0.6);
+    border-radius: 30px;
     /* alignment:justify; */
     position:absolute;
-    margin-left:130px;
     margin-top:10px;
     text-align:center;
-    width : 80%;
-    border-color: yellow;
-}
-hr{
-    color : yellow;
+    width : 65%;
+    border-color:#FCECB6;
 }
 
 td,th {
     padding:50px;
     border-width: 20px;
     border-color: transparent;
-    border-bottom: 1px solid yellow;
+    border-bottom: 1px solid #FCECB6;
+}
+
+.text-box{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 5px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(8.5px);
+  color: #FCECB6;
+  font-family: 'Kanit', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.3rem;
+}
+
+.input{
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(255, 220, 144, 0.37);
+  border-radius: 5px;
+  width: 12rem;
+  height: 2rem;
+  margin: 8px;
+  padding: 1rem;
+  border: none;
+  outline: none;
+  color: #FCECB6;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+ 
+}
+
+.button{
+  background-color: transparent;
+  color: #FCECBe;
+  border: 2px solid #FCECBe;
+  height: 2em;
+  width: 8em;
+  cursor:pointer;
+  font-family: 'Kanit', sans-serif;
+}
+
+.button:hover{
+  color:black;
+  background-color:#FCECBe;
+
+}
+
+.homeimg{
+  border: 5px groove #FCECBe;
+  width:100px;
 }

@@ -17,7 +17,7 @@
         >
         <div class="MainContainer">
     <h1 class="SigninText">Admin register </h1>
-    <form class="InputContainer" action ="../adminRegistered/" method="post" style="padding-top: 100px">
+    <form class="InputContainer" action ="../adminRegister/" method="post" style="padding-top: 100px">
         {% csrf_token %}
           <input type="text" id="username" name="username" class="input" placeholder="Enter Username"><br>
           <input type="password" id="password" name="password" class="input" placeholder="Enter Password"><br>
@@ -28,7 +28,7 @@
             <button type="submit" value="REGISTER">Sign in</button>
         </div> 
       </form>
-      <p>Already an Admin? <a href=""> Sign-In</a> </p> 
+      <p>Already an Admin? <a href="../adminLogin"> Sign-In</a> </p> 
       </div>
       </div>
 </body>

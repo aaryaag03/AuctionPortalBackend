@@ -1,7 +1,9 @@
 body{
-  /* background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROJJBGk44OcLgLow4LcuyNlpId6BFmeuea0g&usqp=CAU"); */
   background-image: url("https://en.cryptonomist.ch/wp-content/uploads/2022/06/3ac-crypto-1140x600.jpg");;
+  /* background-image: url("https://hexagon.com/-/media/project/one-web/master-site/sig/products/hxgn-oncall-analytics/hxgn-oncall-analytics.jpg?h=428&iar=0&w=800&hash=8A608CA197E338E42D0C121E63A18359"); */
   background-size: cover;
+  padding:0%;
+  margin: 0%;
 }
 header{
 padding:20px;
@@ -10,7 +12,7 @@ padding:20px;
   display: grid;
   width: 80%;
   grid-template-columns: 2fr 1fr;
-  padding:0vh 5vw 2vh 10vw;
+  padding:0vh 4vw 2vh 10vw;
   color:white;
   font-family: 'Nunito Sans', sans-serif;
 }
@@ -21,11 +23,13 @@ padding:20px;
   height: 5rem;
 }
 .heading{
-  padding: 1.5vh 4vw 0vh 4vw;
-  font-size: 60px;
-  color: yellow;
+  padding: 0vh 0vw 0vh 5vw;
+  margin:20vh 0 0 0;
+  font-size: 80px;
+  color: #FCECB6;
   font-family: 'Kanit', sans-serif;
 }
+
 
 .nav{
   color : grey;
@@ -39,6 +43,7 @@ padding:20px;
 .rightside{
   float : right;
   text-decoration: none;
+  text-align: center;
 }
 .nav ul{
   float : right;
@@ -50,11 +55,10 @@ padding:20px;
 .nav a {
   color : inherit;
   height : 100%;
-  display : flex;
   align-items: center;
   font-family: 'Kanit', sans-serif;
-  padding : .25rem;
   text-decoration: none;
+  text-align: center;
 }
 .nav li:active{
   background-color: gray;
@@ -63,31 +67,49 @@ padding:20px;
   color: yellow;
 }
 
-#buttonStart{
-  padding: 2.5vh 10vw;
+#buttonStart button{
+  text-align: center;
 }
 
 #buttonStart button{
   background-color: transparent;
-  color: aliceblue;
-  border: 2px solid white;
-  height: 3em;
-  width: 10em;
+  color: #FCECB6;
+  border: 2px solid #FCECB6;
+  height: 10vh;
+  width: 10vw;
   cursor:pointer;
+  font-size: 20px;
   font-family: 'Kanit', sans-serif;
 }
 
 #buttonStart button:hover{
-  border: 2px solid yellow;
-  color:yellow;
-}
-
-.homefooter ul li{
-  background-color: gray;
-  color: white;
+  color:black;
+  background-color: #FCECB6;
 }
 
 #ConFoot{
   padding: 0vh 10vw 0vh 0vw;
   font-size: 30px;
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+#sm>h1{
+  padding: 0;
+  margin: 0;
+  font-size: 2vh;
+  font-family: 'Nunito Sans', sans-serif;
+}
+#sm{
+  display: flex;
+  flex-direction: column;
+  height: 10vh;
+  background-color: black;
+  text-align: center;
+  color: aliceblue;
+  padding: 0px 0 20px 0;
+  margin: 100px 0px 0px 0px;
+}
+.contacts img{
+  height:3em;
+  width:3em;
 }

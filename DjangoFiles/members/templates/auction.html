@@ -7,9 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="{% static 'bid.css' %}">
-    <script>
-        
-    </script>
 </head>
     
 <body>
@@ -22,6 +19,7 @@
         <tr>
              <th>Item Image </th>
              <th>Item Name </th>
+             <th>description</th>
              <th>Current Bid </th>
              <th>Owner </th>
              <th>Highest Bidder </th>
@@ -40,19 +38,23 @@
                 alt='why man why?'/>
         </div></td>
         <td>{{ x.item_name }}</td>
+        <td>{{x.desc}}</td>
         <td>{{ x.highest_bid }}</td>
         <td>{{ x.owner_username }}</td>
         <td>{{ x.highest_bidder_username }}</td>
         <td>
-            <form action ="../bidUpdate/" method="post">
-                {% csrf_token %}
-                <input type="text" name="username" value= '{{ current_username }}' style="display:none;">
-                <label for=""> Enter your bid</label>
-                <input type="number" id="bid" name="bid" placeholder="Enter Bid">
-                <input type="text" id="item_name" name="item_name" value='{{x.item_name}}' style="display:none;">
-                <input type="number" id="item_id" name="item_id" value='{{x.id}}' style="display:none;" >
-                <input type="submit" value="SEND BID">
-            </form>
+            
+                <form action ="../bidUpdate/" method="post">
+                    {% csrf_token %}
+                    <input type="text" name="username" value= '{{ current_username }}' style="display:none;">
+                    <label for=""> Enter your bid</label>
+                    <input class="input" type="number" id="bid" name="bid" placeholder="Enter Bid">
+                    <input type="text" id="item_name" name="item_name" value='{{x.item_name}}' style="display:none;">
+                    <input type="number" id="item_id" name="item_id" value='{{x.id}}' style="display:none;" >
+                    <input class="button" type="submit" value="SEND BID">
+                </form>
+            
+            
         </td>
         <td>
 
@@ -63,7 +65,6 @@
             <input type="text" name="username" value= '{{ admin.username }}' style="display:block;">
             <input type="submit" value="AUCTION">
         </form> {% endcomment %}
-        <hr>
         {% endfor %}
 </table>
 
