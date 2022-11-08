@@ -1,5 +1,7 @@
 # Auctopus
 
+![octopus](https://user-images.githubusercontent.com/99145719/200618385-c2feafe5-de05-455c-9271-023fb83448f0.svg)
+
 A Web Auctioning platform to Digitalize the system of Auctioning which will save you from all the Crowd Hustle and will help you participate in distant Auctions from the comfort and warmth of your homes.
 
 Auctopus is made in Django and houses the power to handle multiple Auction events simultaneously just like the multiple tentacles of an Octopus and hence its name.
@@ -13,6 +15,9 @@ Auctopus is made in Django and houses the power to handle multiple Auction event
 * The list of items can be viewed by the users anytime on their profile page.
 
 ## Use Case Diagram
+
+![WhatsApp Image 2022-11-08 at 03 40 10](https://user-images.githubusercontent.com/99145719/200619110-920878d6-3944-4b2a-b8a6-4232577ff016.jpeg)
+
 
 Here the actors are the client and the admin. They interact with each other through the interface of the web app. Any unregistered user can register himself into the app using the register functionality. Any register has to first login into the Auction portal in order to bid or add items for auctioning. The admin has the right to accept or reject the auction request. The several use cases shown above are: 
 * Login/Register: This allows unregistered users to register into the auction portal and the registered users to login into the app. 
