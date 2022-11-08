@@ -8,7 +8,7 @@ Auctopus is made in Django and houses the power to handle multiple Auction event
 
 ## Applications of Auctopus
 
-* Gives the user a platform to sell thsier belongings at the best price that the customers are willing to pay.
+* Gives the user a platform to sell their belongings at the best price that the customers are willing to pay.
 * Buyers do not have to move to some crowdy location to auction and they will miss no opportunity to bid for their favourite items.
 * The Auction of a commodity closes automatically after 24 hours from the time started. It helps the seller to quickly sell his items and finish his deal.
 * Live Cryptocurrency rates can also be viewed and bidders also have the option to bid in terms of Cryptocoins.
