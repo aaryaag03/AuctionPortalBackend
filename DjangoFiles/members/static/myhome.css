@@ -64,6 +64,25 @@ body{
     border:none;
     margin-top: 0.5rem;
   }
+
+  .rightside ul li form Button{
+    background-color: transparent;
+    border: none;
+    padding-top: 2vh;
+    color: gray;
+    font-family: 'Kanit', sans-serif;
+    font-size: large;
+  }
+
+  .rightside ul li form Button:hover{
+    background-color: transparent;
+    border: none;
+    padding-top: 2vh;
+    color: yellow;
+    font-family: 'Kanit', sans-serif;
+    font-size: large;
+  }
+
   .nav a {
     color : inherit;
     height : 100%;

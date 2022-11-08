@@ -1,3 +1,4 @@
+from math import floor
 from django.shortcuts import render
 from django.http import HttpResponse,HttpResponseRedirect
 from django.template import loader
@@ -36,12 +37,19 @@ def clientRegistered(request):
 
     for x in Users.objects.all().values():
         if(x['username']==client_username):
-            return HttpResponse("Username taken")
+            message="USERNAME TAKEN"
+            context={
+                "message":message
+            }
+            return render(request,'message.html',context)
 
     if(client_confirm_password!=client_password):
-            return HttpResponse("Passwords do not match")
-
-    user=Users(username=client_username, role='0',password=hashed_client_password,balance=0,email=client_email)
+        message="PASSWORDS DO NOT MATCH"
+        context={
+            "message":message
+        }
+        return render(request,'message.html',context)
+    user=Users(username=client_username, role='0',password=hashed_client_password,balance=10000,email=client_email)
     user.save()
     return HttpResponseRedirect(reverse('clientLogin'))
 
@@ -51,15 +59,27 @@ def clientLoggedIn(request):
     client_password=request.POST['password']
     clients=Users.objects.filter(username=client_username).values()
     if(len(clients)==0):
-        return HttpResponse("Username does not exist")
+        message="USERNAME DOES NOT EXIST"
+        context={
+            "message":message
+        }
+        return render(request,'message.html',context)
 
     saved_hashed_password = clients[0]['password']
     saved_role=clients[0]['role']
     
     if(saved_role!=0):
-        return HttpResponse("Not a valid client!")
+        message="NOT A VALID CLIENT"
+        context={
+            "message":message
+        }
+        return render(request,'message.html',context)
     if(check_password(client_password,saved_hashed_password)!=True):
-        return HttpResponse("Wrong password!") 
+        message="WRONG PASSWORD"
+        context={
+            "message":message
+        }
+        return render(request,'message.html',context)
     template=loader.get_template('chome.html')
     context={
         'client':clients[0]
@@ -84,12 +104,20 @@ def adminRegistered(request):
 
     for x in Users.objects.all().values():
         if(x['username']==admin_username):
-            return HttpResponse("Username taken")
+            message="USERNAME TAKEN"
+            context={
+                "message":message
+            }
+            return render(request,'message.html',context)
 
     if(admin_confirm_password!=admin_password):
-            return HttpResponse("Passwords do not match")
+        message="PASSWORDS DO NOT MATCH"
+        context={
+            "message":message
+        }
+        return render(request,'message.html',context)
 
-    user=Users(username=admin_username, role='1',password=hashed_admin_password,balance=0,email=admin_email)
+    user=Users(username=admin_username, role='1',password=hashed_admin_password,balance=10000,email=admin_email)
     user.save()
     return HttpResponseRedirect(reverse('adminLogin'))
 
@@ -98,14 +126,26 @@ def adminLoggedIn(request):
     admin_password=request.POST['password']
     admins=Users.objects.filter(username=admin_username).values()
     if(len(admins)==0):
-        return HttpResponse("Username does not exist")
+        message="USERNAME DOES NOT EXIST"
+        context={
+            "message":message
+        }
+        return render(request,'message.html',context)
 
     saved_hashed_password = admins[0]['password']
     saved_role=admins[0]['role']
     if(saved_role!=1):
-        return HttpResponse("Not a valid admin!")
+        message="NOT A VALID ADMIN!"
+        context={
+            "message":message
+        }
+        return render(request,'message.html',context)
     if(check_password(admin_password,saved_hashed_password)!=True):
-        return HttpResponse("Wrong password!") 
+        message="PASSWORDS DO NOT MATCH"
+        context={
+            "message":message
+        }
+        return render(request,'message.html',context)
 
     template=loader.get_template('ahome.html')
     context={
@@ -128,15 +168,20 @@ def auctionPortalItems(request):
     current_username=request.POST['username']
     current_time=int(time.time())
     for item in ItemsOnBid.objects.filter(valid=1):
-        item.time_left=300-current_time+item.initial_time
+        item.time_left=60-current_time+item.initial_time
+        item.hours=int((item.time_left)/3600)
+        item.minutes=(item.time_left)/60 -item.hours*60
         item.save()
         if item.time_left<=0:
+            owner=Users.objects.filter(username=item.owner_username)[0]
             item.owner_username=item.highest_bidder_username
+            owner.balance=owner.balance+item.highest_bid
             item.save()
             claimed_item=ItemsClaimed(item_name=item.item_name,item_descr=item.item_descr,item_picture=item.item_picture,owner_username=item.owner_username)
             claimed_item.save()
             user=Users.objects.filter(username=item.highest_bidder_username)[0]
             user.balance=user.balance-item.highest_bid
+            owner.save()
             user.save()
             item.delete()
     context={
@@ -160,7 +205,11 @@ def itemAdded(request):
     username=request.POST['username']
     item=ItemsOnBid(item_name=item_name,item_descr=item_descr,item_picture=item_picture,highest_bid=minimum_bid,highest_bidder_username=username,owner_username=username,valid='0')
     item.save()
-    return HttpResponse("Request has been sent to admin")
+    message="REQUEST HAS BEEN SENT TO ADMIN"
+    context={
+        "message":message
+    }
+    return render(request,'message.html',context)
 
 def bidUpdate(request) :
     current_item_bid=int(request.POST['bid'])
@@ -172,8 +221,16 @@ def bidUpdate(request) :
         item.highest_bid=current_item_bid
         item.highest_bidder_username=current_username
         item.save() 
-        return HttpResponse("Bid UPDATED")
-    return HttpResponse("Bid not ACCEPTED")
+        message="BID UPDATED"
+        context={
+            "message":message
+        }
+        return render(request,'message.html',context)
+    message="BIT NOT ACCEPTED"
+    context={
+        "message":message
+    }
+    return render(request,'message.html',context)
 
 def bidRequest(request) :
     items=ItemsOnBid.objects.filter(valid=0).values()
@@ -195,23 +252,35 @@ def bidAccept(request) :
     item.valid=1
     item.initial_time=time.time()
     item.save()
-    return HttpResponse("Item Accepetd")
+    message="ITEM ACCEPTED"
+    context={
+        "message":message
+    }
+    return render(request,'message.html',context)
 
 def bidReject(request) :
     current_item_id=request.POST['item_id']
     item=ItemsOnBid.objects.get(id=current_item_id)
     item.delete()
-    return HttpResponse("Item Deleted")
+    message="ITEM REJECTED"
+    context={
+        "message":message
+    }
+    return render(request,'message.html',context)
 
 def balanceUpdate(request):
     username=request.POST['username']
     price=request.POST['price']
     bitcoins=request.POST['bitcoins']
-    names=Users.objects.filter(username=username)
-    name=names[0]
-    name.balance= name.balance + price*bitcoins
+    name=Users.objects.filter(username=username)[0]
+    amount=floor(float(price))*int(bitcoins)
+    name.balance= name.balance + amount
+    context={
+        "message":"Current balance:" + str(name.balance)
+    }
     name.save()
-    return HttpResponse("Balance Updated")
+    
+    return render(request,'message.html',context)
 
 def myProfile(request):
         username=request.POST['username']
@@ -268,10 +337,11 @@ def crypto(request):
     price_4=USD_4['price']
     
     template=loader.get_template('crypto.html')
+    # username=request.POST['username']
     context={
         "price_1":price,
         "price_2":price_2,
-        "price_4":price_4
+        # "username":username  
     }
     return HttpResponse(template.render(context,request))
 

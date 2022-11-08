@@ -3,10 +3,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="5">
+    <meta http-equiv="" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auction</title>
+    <title>Auction Items</title>
     <link rel="stylesheet" href="{% static 'bid.css' %}">
+    <link
+        rel="icon"
+        href="https://i.imgur.com/G9Fr5ir.png"
+        />
+    {% comment %} <script>
+        $(function autoRefresh() {
+            window.location = window.location.href;
+          }
+          setInterval('autoRefresh()',500););
+    </script> {% endcomment %}
 </head>
     
 <body>
@@ -62,7 +72,7 @@
                 </form>
         </td>
         <td>
-            {{x.time_left}}
+            {{x.hours}}H {{x.minutes}}M
         </td>
         </tr>
         {% endfor %}

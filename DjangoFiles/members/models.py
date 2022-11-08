@@ -20,7 +20,9 @@ class ItemsOnBid(models.Model):
   valid=models.BooleanField()
   initial_time=models.IntegerField(default=0)
   time_left=models.IntegerField(default=0)
-
+  hours=models.IntegerField(default=0)
+  minutes=models.IntegerField(default=0)
+  
 
 class ItemsClaimed(models.Model):
   item_name=models.CharField(max_length=255)
