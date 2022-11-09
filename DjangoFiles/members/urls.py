@@ -18,6 +18,7 @@ urlpatterns = [
     path('itemAdded/',views.itemAdded,name='itemAdded'),
     path('bidRequest/',views.bidRequest, name='bidRequest'),
     path('bidAccept/',views.bidAccept, name='bidAccept'),
+    path('bidReject/',views.bidReject, name='bidReject'),
     path('crypto/',views.crypto, name="crypto"),
     path('crypto2/',views.crypto2, name="crypto2"),
     path('about/',views.first, name="first"),

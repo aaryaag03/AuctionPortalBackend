@@ -168,7 +168,7 @@ def auctionPortalItems(request):
     current_username=request.POST['username']
     current_time=int(time.time())
     for item in ItemsOnBid.objects.filter(valid=1):
-        item.time_left=60-current_time+item.initial_time
+        item.time_left=200-current_time+item.initial_time
         item.hours=int((item.time_left)/3600)
         item.minutes=(item.time_left)/60 -item.hours*60
         item.save()
