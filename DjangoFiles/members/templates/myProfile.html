@@ -6,7 +6,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link
+        rel="icon"
+        href="https://i.imgur.com/G9Fr5ir.png"
+        />
+    <title>My Profile</title>
     <link rel="stylesheet" href="{% static 'profile.css' %}">
 
 </head>
@@ -28,11 +32,10 @@
             <p class="details">Email  :<b> {{user.email}}</b></p>
             <p class="details">Balance  : <b>  {{user.balance}}</b></p>
             <p class="details">Role   :   <b>  {{role}}</b></p>
-                
-                 
         </form>
         <hr width="1px">
         <table class="table1">
+            <h3>Owned Items</h3>
         {% for x in items %}
         <tr>
         <!-- <td>{{ x.id }}</td>     -->

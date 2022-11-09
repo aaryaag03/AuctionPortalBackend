@@ -29,12 +29,21 @@
                         </Button>
                     </form>
                 </li>
-            <li>
+            {% comment %} <li>
                 <form action="../crypto/" method="POST">
                     {%csrf_token%}
                     <input type="text" name="username" value= '{{ admin.username }}' style="display:none;">
                     <Button>
                         <b> Cryptocurrency Prices</b>
+                    </Button>
+                </form>
+            </li> {% endcomment %}
+            <li>
+                <form action="../crypto2/" method="POST">
+                    {%csrf_token%}
+                    <input type="text" name="username" value= '{{ admin.username }}' style="display:none;">
+                    <Button>
+                        <b> Cryptocurrency Convertor</b>
                     </Button>
                 </form>
             </li>

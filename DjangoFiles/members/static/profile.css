@@ -26,7 +26,6 @@
   backdrop-filter: blur(8.5px);
   color: #FCECB6;
   font-family: 'Kanit', sans-serif;
-  text-transform: uppercase;
   letter-spacing: 0.3rem;
   }
   h1{
@@ -133,7 +132,10 @@ cursor: pointer;
   margin-top: 100px;
 }
 
-
+h3{
+  margin-top:25vh;
+  margin-bottom: -25vh;
+}
 
 .details{
  letter-spacing: 2px;
