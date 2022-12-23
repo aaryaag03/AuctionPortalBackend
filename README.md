@@ -35,7 +35,7 @@ Here the actors are the client and the admin. They interact with each other thro
 * View Profile: This shows the profile of the user which contains various info such as the balance and the list of items purchased by the user. 
 
 
-## CONTACT US (OUR TEAM)
+## OUR TEAM
 * AARYA AGRAWAL
 * ARYAN AGRAWAL
 * SHINJAN CHATURVEDI
